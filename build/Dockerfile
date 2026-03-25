@@ -12,5 +12,5 @@ WORKDIR /host
 
 VOLUME ["/root/.opencode"]
 
-# Start tmux in background and keep container running
-CMD ["sh", "-c", "tmux new -d -s opencode 'opencode'; sleep infinity"]
+# Start tmux and keep container running until tmux session ends
+CMD ["sh", "-c", "tmux new -d -s opencode 'opencode'; while tmux has-session -t opencode 2>/dev/null; do sleep 1; done; exit 0"]
