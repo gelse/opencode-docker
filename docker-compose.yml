@@ -1,0 +1,11 @@
+services:
+  opencode:
+    build:
+      context: ./build
+      dockerfile: Dockerfile
+    image: opencode:latest
+    container_name: opencode
+    volumes:
+      - /:/host:ro
+    stdin_open: true
+    tty: true
