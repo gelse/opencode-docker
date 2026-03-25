@@ -4,8 +4,11 @@ services:
       context: ./build
       dockerfile: Dockerfile
     image: opencode:latest
-    container_name: opencode
     volumes:
       - /:/host:ro
+      - opencode_data:/root/.opencode
     stdin_open: true
     tty: true
+
+volumes:
+  opencode_data:
