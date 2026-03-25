@@ -12,4 +12,5 @@ WORKDIR /host
 
 VOLUME ["/root/.opencode"]
 
-CMD ["opencode"]
+# Start tmux in background and keep container running
+CMD ["sh", "-c", "tmux new -d -s opencode 'opencode'; sleep infinity"]

@@ -1,5 +1,6 @@
 services:
   opencode:
+    container_name: opencode
     build:
       context: ./build
       dockerfile: Dockerfile
