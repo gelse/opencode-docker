@@ -9,10 +9,11 @@ RUN apt-get update \
 
 ENV PATH="/root/.opencode/bin:$PATH"
 
-WORKDIR /host
+WORKDIR /workdir
 
 VOLUME ["/root/.opencode"]
 VOLUME ["/root/.config/opencode"]
+VOLUME [/workdir]
 
 # Copy files needed by entrypoint
 COPY agents /usr/local/share/agents.default

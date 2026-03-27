@@ -7,6 +7,7 @@ services:
     image: opencode:latest
     volumes:
       - /:/host:ro
+      - ./workdir:/workdir
       - opencode_data:/root/.opencode
     ports:
       - "8088:8088"
