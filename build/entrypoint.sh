@@ -6,4 +6,4 @@ if [ ! -d /root/.config/opencode/agents ]; then
 fi
 
 # Start tmux session, exit if session ends
-tmux new -s opencode 'opencode' && exit 0
+tmux new -s opencode 'opencode --hostname 0.0.0.0 --port 8088' && exit 0
