@@ -1,7 +1,8 @@
 FROM ubuntu:22.04
 
 RUN apt-get update \
-    && apt-get install -y curl tmux \
+    && apt-get -y upgrade \
+    && apt-get install -y curl tmux nano \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && curl -sSfL https://opencode.ai/install | bash
@@ -11,6 +12,11 @@ ENV PATH="/root/.opencode/bin:$PATH"
 WORKDIR /host
 
 VOLUME ["/root/.opencode"]
+VOLUME ["/root/.config/opencode"]
 
-# Start tmux and keep container running until tmux session ends
-CMD ["sh", "-c", "tmux new -d -s opencode 'opencode'; while tmux has-session -t opencode 2>/dev/null; do sleep 1; done; exit 0"]
+# Copy files needed by entrypoint
+COPY agents /usr/local/share/agents.default
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
