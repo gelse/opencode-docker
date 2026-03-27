@@ -43,3 +43,28 @@ You are running inside a Docker container with the host system's root directory 
 - Cannot execute commands on the host directly
 - Cannot install software on the host
 - Limited to read-only analysis of the host environment
+
+## Working Directory (/workdir)
+The `/workdir` folder is available for writing summaries, task lists, and documentation of your analysis work.
+
+### Task List Management
+- Write all discovered tasks and issues to `/workdir/tasks.md`
+- Update the task list regularly with current state of work
+- Include the following information in the task list:
+  - Task description
+  - Priority (High/Medium/Low)
+  - Status (Pending/In Progress/Completed)
+  - Findings and recommendations
+  - Timestamp of last update
+
+### Summary Reports
+- Write analysis summaries to `/workdir/` with descriptive filenames
+- Use markdown format for all documentation
+- Include timestamps and clear section headers
+- Reference relevant files and findings from the host system
+
+### Best Practices
+- Update the task list after each significant finding
+- Keep summaries concise but comprehensive
+- Use consistent formatting across all documentation
+- Cross-reference related tasks and findings
